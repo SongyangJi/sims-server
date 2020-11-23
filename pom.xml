@@ -25,7 +25,9 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter</artifactId>
+
         </dependency>
+
 
         <!--  web场景启动器      -->
         <dependency>
@@ -68,6 +70,18 @@
             <artifactId>druid</artifactId>
             <version>1.1.10</version>
         </dependency>
+
+
+
+        <!--  简化模板代码  -->
+        <!-- https://mvnrepository.com/artifact/org.projectlombok/lombok -->
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.18.12</version>
+            <scope>provided</scope>
+        </dependency>
+
 
     </dependencies>
 
