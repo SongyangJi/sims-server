@@ -15,8 +15,16 @@ public interface StudentMapper {
 
     void insertStudent(Student student);
 
-    Student selectStudent(Long uid);
+    Student selectStudent(Long sid);
+
+    List<Student> selectStudentByName(String name);
 
     List<Student> selectAllStudents();
+
+    void deleteStudent(Long sid);
+
+    void updateStudent(Student student);
+
+
 
 }

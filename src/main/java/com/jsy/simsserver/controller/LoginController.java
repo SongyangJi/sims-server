@@ -15,6 +15,6 @@ public class LoginController {
         if(admin.getAid()==123 && admin.getPwd().equals("123")){
             return ResponseEntity.status(HttpStatus.CREATED).build();
         }
-        return ResponseEntity.status(HttpStatus.OK).build();
+        return ResponseEntity.ok().build();
     }
 }

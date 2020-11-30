@@ -2,12 +2,14 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
+
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.4.0</version>
+        <version>2.1.0.RELEASE</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
+
     <groupId>com.jsy</groupId>
     <artifactId>sims-server</artifactId>
     <version>0.0.1-SNAPSHOT</version>
@@ -22,23 +24,28 @@
     <dependencies>
 
         <!-- spring boot 启动器-->
+        <!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter</artifactId>
-
+            <version>2.1.0.RELEASE</version>
         </dependency>
+
 
 
         <!--  web场景启动器      -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
+            <version>2.1.0.RELEASE</version>
         </dependency>
+
 
         <!-- springboot单元测试 -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
+            <version>2.1.0.RELEASE</version>
             <scope>test</scope>
             <!-- 剔除依赖 -->
             <exclusions>
@@ -47,6 +54,15 @@
                     <artifactId>junit-vintage-engine</artifactId>
                 </exclusion>
             </exclusions>
+        </dependency>
+
+
+        <!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-devtools -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-devtools</artifactId>
+            <scope>runtime</scope>
+            <version>2.1.0.RELEASE</version>
         </dependency>
 
 
@@ -72,6 +88,15 @@
         </dependency>
 
 
+        <!-- https://mvnrepository.com/artifact/com.alibaba/druid-spring-boot-starter -->
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>druid-spring-boot-starter</artifactId>
+            <version>1.2.1</version>
+        </dependency>
+
+
+
 
         <!--  简化模板代码  -->
         <!-- https://mvnrepository.com/artifact/org.projectlombok/lombok -->
@@ -82,8 +107,56 @@
             <scope>provided</scope>
         </dependency>
 
+        <!-- 阿里云OSS服务 -->
+<!--        <dependency>-->
+<!--            <groupId>com.alibaba.cloud</groupId>-->
+<!--            <artifactId>aliyun-oss-spring-boot-starter</artifactId>-->
+<!--        </dependency>-->
+
+<!--        &lt;!&ndash;引入ali-Nacos服务发现中心&ndash;&gt;-->
+<!--        <dependency>-->
+<!--            <groupId>com.alibaba.cloud</groupId>-->
+<!--            <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>-->
+<!--            &lt;!&ndash;<version>2.2.0.RELEASE</version>&ndash;&gt;-->
+<!--        </dependency>-->
+<!--        &lt;!&ndash;引入ali-Nacos服务配置中心&ndash;&gt;-->
+<!--        <dependency>-->
+<!--            <groupId>com.alibaba.cloud</groupId>-->
+<!--            <artifactId>spring-cloud-starter-alibaba-nacos-config</artifactId>-->
+<!--        </dependency>-->
+
+
+        <dependency>
+            <groupId>com.alibaba.cloud</groupId>
+            <artifactId>spring-cloud-starter-alicloud-oss</artifactId>
+        </dependency>
 
     </dependencies>
+
+    <!--引入spring cloud alibaba-->
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>com.alibaba.cloud</groupId>
+                <artifactId>spring-cloud-alibaba-dependencies</artifactId>
+<!--                <version>2.2.3.RELEASE</version>-->
+<!--                <version>2.1.0.RELEASE</version>-->
+                <version>2.1.0.RELEASE</version>
+
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <!--解决Cannot resolve com.alibaba.cloud:aliyun-oss-spring-boot-starter:unknown-->
+<!--            <dependency>-->
+<!--                <groupId>com.alibaba.cloud</groupId>-->
+<!--                <artifactId>aliyun-oss-spring-boot-starter</artifactId>-->
+<!--                <version>1.0.0</version>-->
+<!--                <type>pom</type>-->
+<!--                <scope>import</scope>-->
+<!--            </dependency>-->
+        </dependencies>
+    </dependencyManagement>
+
 
     <build>
         <!-- maven配置资源过滤问题 -->
@@ -104,6 +177,10 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+                <version>2.1.0.RELEASE</version>
+                <configuration>
+                    <fork>true</fork>
+                </configuration>
             </plugin>
         </plugins>
     </build>

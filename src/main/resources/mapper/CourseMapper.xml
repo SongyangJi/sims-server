@@ -5,10 +5,17 @@
 
 <mapper namespace="com.jsy.simsserver.mapper.CourseMapper">
 
-    <insert id="addCourse" parameterType="Course">
-        insert to
+    <insert id="insertCourse" parameterType="Course">
+        INSERT INTO course (cid, cname, credit, prop, faculty, teacher_name, begin, end)
+        VALUES (#{cid},#{cname},#{credit},#{prop},#{faculty},#{teacher_name},#{begin},#{end});
     </insert>
 
-    <select id=""></select>
+    <select id="selectAllCourses" resultType="Course">
+        SELECT * FROM course;
+    </select>
+
+    <select id="selectCourse" resultType="Course">
+        SELECT * FROM course WHERE cid = #{cid};
+    </select>
 
 </mapper>

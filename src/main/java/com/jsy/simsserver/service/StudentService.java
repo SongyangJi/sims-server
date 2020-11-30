@@ -7,15 +7,22 @@ import java.util.List;
 
 public interface StudentService {
 
-    void addStudent(Student student);
+    int addStudent(Student student);
 
-    void addStudent(Long sid);
+    int addStudent(Long sid);
 
-    void addStudents(List<Long> sidList);
+    int addStudents(List<Long> sidList);
 
     List<Student> queryAllStudents();
 
     Student queryStudentByID(Long uid);
+
+    List<Student> queryStudentByName(String name);
+
+
+    void removeStudent(Long sid);
+
+    void updateStudent(Student student);
 
 
 

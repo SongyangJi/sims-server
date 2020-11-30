@@ -1,6 +1,7 @@
 package com.jsy.simsserver;
 
-import org.junit.jupiter.api.Test;
+
+import org.junit.Test;
 
 public class TestStudentMapper {
     @Test

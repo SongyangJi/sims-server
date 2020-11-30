@@ -14,22 +14,49 @@ public class StudentServiceImpl implements StudentService {
     @Resource
     StudentMapper studentMapper;
 
-    @Override
-    public void addStudent(Student student) {
-        studentMapper.insertStudent(student);
-    }
+    /**
+     *
+     * @param student
+     * @return 成功插入,返回 0 ; 用户存在,返回 1
+     */
 
     @Override
-    public void addStudent(Long sid) {
+    public int addStudent(Student student) {
+        if(queryStudentByID(student.getSid())!=null) return 1;
+        studentMapper.insertStudent(student);
+        return 0;
+    }
+
+
+    /**
+     *
+     * @param sid
+     * @return 成功插入,返回 0 ; 用户存在,返回 1
+     */
+
+    @Override
+    public int addStudent(Long sid) {
         Student student = new Student(sid);
-        studentMapper.insertStudent(student);
+        return addStudent(student);
     }
 
+
+    /**
+     *
+     * @param sidList
+     * @return 成功插入,返回 0 ; 用户存在,返回 1
+     */
+
     @Override
-    public void addStudents(List<Long> sidList) {
+    public int addStudents(List<Long> sidList) {
+        boolean flag = true;
         for(Long sid:sidList){
-            addStudent(sid);
+            if(addStudent(sid)!=0){
+                flag = !flag;
+                continue;
+            }
         }
+        return flag?0:1;
     }
 
     @Override
@@ -38,7 +65,26 @@ public class StudentServiceImpl implements StudentService {
     }
 
     @Override
-    public Student queryStudentByID(Long uid) {
-        return studentMapper.selectStudent(uid);
+    public Student queryStudentByID(Long sid) {
+        return studentMapper.selectStudent(sid);
     }
+
+
+    @Override
+    public List<Student> queryStudentByName(String name) {
+        return studentMapper.selectStudentByName(name);
+    }
+
+    @Override
+    public void removeStudent(Long sid) {
+        studentMapper.deleteStudent(sid);
+    }
+
+    @Override
+    public void updateStudent(Student student) {
+        studentMapper.updateStudent(student);
+    }
+
+
+
 }

@@ -17,7 +17,6 @@ public class Course {
     private String prop;         // 课程属性
     private String faculty;      // 开课学院
     private String teacher_name; // 任课老师，可拓展为对象
-    private String weeks;        // 开课日期  格式为： 3-17周
+    private int begin;
+    private int end;
 }
-
-

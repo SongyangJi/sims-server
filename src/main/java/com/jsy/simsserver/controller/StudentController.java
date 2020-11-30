@@ -1,5 +1,8 @@
 package com.jsy.simsserver.controller;
 
+import com.jsy.simsserver.reponse.ErrorMessage;
+import com.jsy.simsserver.reponse.Message;
+import com.jsy.simsserver.reponse.SuccessMessage;
 import com.jsy.simsserver.pojo.Student;
 import com.jsy.simsserver.service.StudentService;
 import org.springframework.http.HttpStatus;
@@ -12,6 +15,7 @@ import java.util.List;
 
 @RestController
 public class StudentController {
+
     @Resource(name = "studentService")
     StudentService studentService;
 
@@ -22,9 +26,15 @@ public class StudentController {
      * @return
      */
     @PostMapping("/student")
-    public ResponseEntity<Void> addStudent(@RequestBody Student student){
-        studentService.addStudent(student);
-        return ResponseEntity.status(HttpStatus.CREATED).build();
+    public ResponseEntity<Message> addStudent(@RequestBody Student student){
+        int code = studentService.addStudent(student);
+        if(code==0){
+            return ResponseEntity.status(HttpStatus.CREATED).body(new SuccessMessage("成功添加一个用户"));
+        }
+        if(code==1){
+            return ResponseEntity.accepted().body(new ErrorMessage("用户已经存在"));
+        }
+        return ResponseEntity.badRequest().body(new ErrorMessage("内部错误"));
     }
 
     /**
@@ -55,17 +65,32 @@ public class StudentController {
     }
 
 
-
-
     @GetMapping("/student/{sid}")
     public ResponseEntity<Student> queryStudentByID(@PathVariable Long sid){
         return ResponseEntity.ok(studentService.queryStudentByID(sid));
     }
 
+    @GetMapping("/student-name/{name}")
+    public ResponseEntity<List<Student>> queryStudentByName(@PathVariable String name){
+        return ResponseEntity.ok(studentService.queryStudentByName(name));
+    }
 
     @GetMapping("/all-students")
     public ResponseEntity<List<Student>> queryAllStudents(){
         return ResponseEntity.ok(studentService.queryAllStudents());
+    }
+
+    @DeleteMapping("/student/{sid}")
+    public ResponseEntity<Void> removeStudent(@PathVariable Long sid){
+        studentService.removeStudent(sid);
+        return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
+    }
+
+
+    @PutMapping("/student")
+    public ResponseEntity<Void> updateStudent(@RequestBody Student student){
+        studentService.updateStudent(student);
+        return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
     }
 
 }

@@ -6,17 +6,82 @@
 <mapper namespace="com.jsy.simsserver.mapper.StudentMapper">
 
     <insert id="insertStudent" parameterType="Student">
-        insert into student(sid,pwd,sname,gender,birth,profession,faculty,s_class,grade,phone,politics_status,address)
-        values (#{sid},#{pwd},#{sname},#{gender},#{birth},#{profession},#{faculty},#{s_class},#{grade},#{phone},#{politics_status},#{address});
+        INSERT INTO student(sid,pwd,sname,gender,birth,profession,faculty,s_class,grade,phone,politics_status,address,head_url)
+        VALUES (#{sid},#{pwd},#{sname},#{gender},#{birth},#{profession},#{faculty},#{s_class},#{grade},#{phone},#{politics_status},#{address},#{head_url});
     </insert>
 
     <select id="selectAllStudents" resultType="Student">
-        select * from student;
+        SELECT
+             sid,
+             sname,
+             gender,
+             birth,
+             profession,
+             faculty,
+             s_class,
+             grade,
+             phone,
+             politics_status,
+             address,
+             head_url
+        FROM student;
     </select>
 
     <select id="selectStudent" resultType="Student">
-        select * from student where sid = #{sid};
+        SELECT
+             sid,
+             sname,
+             gender,
+             birth,
+             profession,
+             faculty,
+             s_class,
+             grade,
+             phone,
+             politics_status,
+             address,
+             head_url
+        FROM student WHERE sid = #{sid};
     </select>
+
+    <select id="selectStudentByName" resultType="Student">
+        SELECT
+             sid,
+             sname,
+             gender,
+             birth,
+             profession,
+             faculty,
+             s_class,
+             grade,
+             phone,
+             politics_status,
+             address,
+             head_url
+        FROM student WHERE sname LIKE '%${name}%';
+    </select>
+
+
+    <delete id="deleteStudent">
+        DELETE FROM student WHERE sid = #{sid};
+    </delete>
+
+    <update id="updateStudent">
+        UPDATE student SET
+            sname = #{sname},
+            gender = #{gender},
+            birth = #{birth},
+            profession = #{profession},
+            faculty = #{faculty},
+            s_class = #{s_class},
+            grade = #{grade},
+            phone = #{phone},
+            politics_status = #{politics_status},
+            address = #{address},
+            head_url = #{head_url}
+        WHERE sid = #{sid};
+    </update>
+
 
 
 </mapper>

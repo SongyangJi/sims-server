@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.jsy.simsserver.mapper.ScoreMapper">
+
+    <resultMap id="courseResult" type="Course">
+        <id property="cid" column="cid"></id>
+        <result property="cname" column="cname"></result>
+        <result property="credit" column="credit"></result>
+        <result property="prop" column="prop"></result>
+        <result property="faculty" column="faculty"></result>
+        <result property="teacher_name" column="teacher_name"></result>
+        <result property="begin" column="begin"></result>
+        <result property="end" column="end"></result>
+    </resultMap>
+
+
+    <resultMap id="studentResult" type="Student">
+        <id property="sid" column="sid"></id>
+<!--        <result property="pwd" column="pwd"></result>-->
+        <result property="snamesname" column="snamesname"></result>
+        <result property="gender" column="gender"></result>
+        <result property="birth" column="birth"></result>
+        <result property="profession" column="profession"></result>
+        <result property="faculty" column="faculty"></result>
+        <result property="s_class" column="s_class"></result>
+        <result property="grade" column="grade"></result>
+        <result property="phone" column="phone"></result>
+        <result property="politics_status" column="politics_status"></result>
+        <result property="address" column="address"></result>
+        <result property="head_url" column="head_url"></result>
+    </resultMap>
+
+
+    <resultMap id="scoreResultByCID" type="Score">
+        <result property="score" column="score"/>
+        <association property="student" column="sid" javaType="Student" resultMap="studentResult"/>
+    </resultMap>
+
+    <resultMap id="scoreResultBySID" type="Score">
+        <result property="score" column="score"/>
+        <association property="course" column="cid" javaType="Course" resultMap="courseResult"/>
+    </resultMap>
+
+
+
+    <select id="selectScoresByStudentID" resultMap="scoreResultBySID">
+        SELECT
+            sc.sid,
+            sc.cid,
+            sc.score,
+            co.cid,
+            co.cname,
+            co.credit,
+            co.prop,
+            co.faculty,
+            co.teacher_name,
+            co.begin,
+            co.end
+        FROM
+            score sc
+            LEFT JOIN course co ON sc.cid = co.cid
+        WHERE sc.sid = #{sid};
+    </select>
+
+    <select id="selectScoresByCourseID" resultMap="scoreResultByCID">
+        SELECT
+            sc.sid,
+            sc.cid,
+            sc.score,
+            s.sid,
+            s.sname,
+            s.profession,
+            s.faculty,
+            s.s_class,
+            s.grade
+        FROM
+            score sc
+            LEFT JOIN student s ON sc.sid = s.sid
+        WHERE sc.cid = #{cid};
+    </select>
+
+</mapper>

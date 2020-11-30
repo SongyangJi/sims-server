@@ -6,7 +6,7 @@ import java.util.List;
 
 public interface CourseService {
 
-    void addCourse(Course course);
+    int addCourse(Course course);
 
     // 暂空
     void addCourses(List<Course> courseList);
