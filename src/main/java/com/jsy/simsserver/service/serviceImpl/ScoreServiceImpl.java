@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 import java.util.List;
+import java.util.Map;
 
 
 @Service("scoreService")
@@ -24,5 +25,16 @@ public class ScoreServiceImpl implements ScoreService {
     @Override
     public List<Score> queryScoresByStudentID(Long sid) {
         return scoreMapper.selectScoresByStudentID(sid);
+    }
+
+
+    @Override
+    public void updateStudentScoreOfCourse(Map map) {
+        scoreMapper.updateStudentScoreOfCourse(map);
+    }
+
+    @Override
+    public void removeStudentScoreOfCourse(Map map) {
+        scoreMapper.deleteStudentScoreOfCourse(map);
     }
 }

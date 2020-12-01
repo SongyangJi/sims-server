@@ -16,4 +16,6 @@ public interface CourseMapper {
 
     Course selectCourse(Long cid);
 
+    void deleteCourse(Long cid);
+
 }

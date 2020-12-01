@@ -26,6 +26,11 @@ public class CourseServiceImpl implements CourseService {
     }
 
     @Override
+    public void removeCourse(Long cid) {
+        courseMapper.deleteCourse(cid);
+    }
+
+    @Override
     public List<Course> queryAllCourses() {
         return courseMapper.selectAllCourses();
     }

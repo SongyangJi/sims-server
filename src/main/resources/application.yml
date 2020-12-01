@@ -37,7 +37,7 @@ spring:
       poolPreparedStatements: true
       maxPoolPreparedStatementPerConnectionSize: 20
       #   配置监控统计拦截的filters，去掉后监控界面sql无法统计，'wall'用于防火墙
-      filters: stat,wall,log4j
+      filters: stat,wall
       #合并多个DruidDatasource的监控数据
       useGlobalDataSourceStat: true
       #通过connectProperties属性来打开mergesql功能罗慢sQL记录
@@ -50,8 +50,6 @@ spring:
       secret-key: 7ZcF61t63i7IQB7Hv6ydevkbtShJ9Q #你的秘钥
       oss:
         endpoint: oss-cn-shanghai.aliyuncs.com #上传端点
-
-
 
 server:
   port: 8088
@@ -66,7 +64,6 @@ mybatis:
   type-aliases-package: com.jsy.simsserver.pojo
 
 
-# 指定log4j2作为日志记录
 logging:
   level:
     #这个指定你的dao层，也就是mapper文件的所在包

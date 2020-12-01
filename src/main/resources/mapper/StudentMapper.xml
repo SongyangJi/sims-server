@@ -67,21 +67,45 @@
     </delete>
 
     <update id="updateStudent">
-        UPDATE student SET
-            sname = #{sname},
-            gender = #{gender},
-            birth = #{birth},
-            profession = #{profession},
-            faculty = #{faculty},
-            s_class = #{s_class},
-            grade = #{grade},
-            phone = #{phone},
-            politics_status = #{politics_status},
-            address = #{address},
-            head_url = #{head_url}
+
+        UPDATE student
+            <set>
+                <if test="sname!=null">
+                    sname = #{sname},
+                </if>
+                <if test="gender!=null">
+                    gender = #{gender},
+                </if>
+                <if test="birth!=null">
+                    birth = #{birth},
+                </if>
+                <if test="profession!=null">
+                    profession = #{profession},
+                </if>
+                <if test="faculty!=null">
+                    faculty = #{faculty},
+                </if>
+                <if test="s_class!=null">
+                    s_class = #{s_class},
+                </if>
+                <if test="grade!=null">
+                    grade = #{grade},
+                </if>
+                <if test="phone!=null">
+                    phone = #{phone},
+                </if>
+                <if test="politics_status!=null">
+                    politics_status = #{politics_status},
+                </if>
+                <if test="address!=null">
+                    address = #{address},
+                </if>
+                <if test="head_url!=null">
+                    head_url = #{head_url},
+                </if>
+            </set>
         WHERE sid = #{sid};
     </update>
-
 
 
 </mapper>

@@ -20,7 +20,7 @@
     <resultMap id="studentResult" type="Student">
         <id property="sid" column="sid"></id>
 <!--        <result property="pwd" column="pwd"></result>-->
-        <result property="snamesname" column="snamesname"></result>
+        <result property="sname" column="sname"></result>
         <result property="gender" column="gender"></result>
         <result property="birth" column="birth"></result>
         <result property="profession" column="profession"></result>
@@ -81,5 +81,17 @@
             LEFT JOIN student s ON sc.sid = s.sid
         WHERE sc.cid = #{cid};
     </select>
+    
+    
+    <update id="updateStudentScoreOfCourse" parameterType="Score">
+        UPDATE score
+        SET score = #{score}
+        WHERE sid = #{sid} AND cid = #{cid} ;
+    </update>
+
+    <delete id="deleteStudentScoreOfCourse" parameterType="Score">
+        DELETE FROM score
+        WHERE sid = #{sid} AND cid = #{cid} ;
+    </delete>
 
 </mapper>

@@ -40,4 +40,10 @@ public class CourseController {
         return ResponseEntity.badRequest().body(new ErrorMessage("内部错误"));
     }
 
+    @DeleteMapping("course/{cid}")
+    public ResponseEntity<Void> removeCourse(@PathVariable Long cid){
+        courseService.removeCourse(cid);
+        return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
+    }
+
 }

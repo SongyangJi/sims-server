@@ -11,6 +11,8 @@ public interface CourseService {
     // 暂空
     void addCourses(List<Course> courseList);
 
+    void removeCourse(Long cid);
+
     List<Course> queryAllCourses();
 
     Course queryCourseByID(Long cid);

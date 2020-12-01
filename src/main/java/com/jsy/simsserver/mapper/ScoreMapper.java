@@ -5,6 +5,7 @@ import org.apache.ibatis.annotations.Mapper;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.Map;
 
 
 @Mapper
@@ -15,5 +16,9 @@ public interface ScoreMapper {
     List<Score> selectScoresByCourseID(Long cid);
 
     List<Score> selectScoresByStudentID(Long sid);
+
+    void updateStudentScoreOfCourse(Map map);
+
+    void deleteStudentScoreOfCourse(Map map);
 
 }
