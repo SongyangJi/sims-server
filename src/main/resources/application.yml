@@ -46,8 +46,8 @@ spring:
   cloud:
     alicloud:
       bucket-name: sims-web-jsy #上传空间bucket
-      access-key: LTAI4GEtRcJPLmafNZJJAH3G #你的key
-      secret-key: 7ZcF61t63i7IQB7Hv6ydevkbtShJ9Q #你的秘钥
+      access-key: xxxxxx #你的key
+      secret-key: xxxxxx #你的秘钥
       oss:
         endpoint: oss-cn-shanghai.aliyuncs.com #上传端点
 
