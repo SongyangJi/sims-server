@@ -63,7 +63,6 @@ mybatis:
   #  配置类型别名，避免每次冗余的全限定名
   type-aliases-package: com.jsy.simsserver.pojo
 
-
 logging:
   level:
     #这个指定你的dao层，也就是mapper文件的所在包

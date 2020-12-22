@@ -39,4 +39,14 @@ public class CourseServiceImpl implements CourseService {
     public Course queryCourseByID(Long cid) {
         return courseMapper.selectCourse(cid);
     }
+
+    @Override
+    public void studentsSelectCourse(Long sid, Long cid) {
+        courseMapper.insertRecordOfStudentSelectingCourse(sid,cid);
+    }
+
+    @Override
+    public List<Course> querySelectedCourses(Long sid) {
+        return courseMapper.selectCoursesOfStudents(sid);
+    }
 }

@@ -6,9 +6,6 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 
-
-
-
 @Mapper
 @Repository
 public interface StudentMapper {
@@ -25,6 +22,6 @@ public interface StudentMapper {
 
     void updateStudent(Student student);
 
-
-
+    Student checkStudent(Student student);
 }
+

@@ -15,6 +15,7 @@ public interface ScoreService {
 
     void removeStudentScoreOfCourse(Map map) ;
 
+    void addStudentsScores(List<Score> scoreList);
 
 
 

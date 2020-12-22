@@ -21,4 +21,6 @@ public interface ScoreMapper {
 
     void deleteStudentScoreOfCourse(Map map);
 
+    void insertStudentScoreOfCourse(Score score);
+
 }

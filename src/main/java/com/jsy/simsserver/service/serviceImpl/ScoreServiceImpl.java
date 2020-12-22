@@ -37,4 +37,11 @@ public class ScoreServiceImpl implements ScoreService {
     public void removeStudentScoreOfCourse(Map map) {
         scoreMapper.deleteStudentScoreOfCourse(map);
     }
+
+    @Override
+    public void addStudentsScores(List<Score> scoreList) {
+        for(Score score:scoreList){
+            scoreMapper.insertStudentScoreOfCourse(score);
+        }
+    }
 }

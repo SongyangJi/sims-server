@@ -46,4 +46,15 @@ public class CourseController {
         return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
     }
 
+    @PostMapping("course/{sid}/{cid}")
+    public ResponseEntity<Void> studentsSelectCourse(@PathVariable("sid") Long sid,@PathVariable("cid") Long cid){
+        courseService.studentsSelectCourse(sid,cid);
+        return ResponseEntity.status(HttpStatus.CREATED).build();
+    }
+
+    @GetMapping("course-student/{sid}")
+    public ResponseEntity<List<Course>> coursesOfStudent(@PathVariable Long sid){
+        return ResponseEntity.ok(courseService.querySelectedCourses(sid));
+    }
+
 }

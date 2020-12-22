@@ -23,4 +23,38 @@
         DELETE FROM course WHERE cid = #{cid};
     </delete>
 
+    <insert id="insertRecordOfStudentSelectingCourse">
+
+        INSERT INTO students_select_courses(sid,cid) VALUES(#{sid},#{cid});
+
+    </insert>
+
+    <resultMap id="courseResult" type="Course">
+        <id property="cid" column="cid"/>
+        <result property="cname" column="cname"/>
+        <result property="credit" column="credit"/>
+        <result property="prop" column="prop"/>
+        <result property="faculty" column="faculty"/>
+        <result property="teacher_name" column="teacher_name"/>
+        <result property="begin" column="begin"/>
+        <result property="end" column="end"/>
+    </resultMap>
+
+    <select id="selectCoursesOfStudents" resultMap="courseResult">
+
+        SELECT
+            c.cid,
+            c.cname,
+            c.credit,
+            c.prop,
+            c.faculty,
+            c.teacher_name,
+            c.begin,
+            c.end
+        FROM students_select_courses sc
+            INNER JOIN course c ON sc.cid = c.cid
+        WHERE  sc.sid = #{sid};
+
+    </select>
+
 </mapper>

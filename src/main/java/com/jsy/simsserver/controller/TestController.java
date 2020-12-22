@@ -1,12 +1,14 @@
 package com.jsy.simsserver.controller;
 
 import com.jsy.simsserver.pojo.Course;
-import com.jsy.simsserver.pojo.Score;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 @RestController
@@ -23,6 +25,12 @@ public class TestController {
         course.setCname("数据结构");
         map.put("course",course);
         return ResponseEntity.ok(map);
+    }
+
+    @PostMapping("/jsonUp")
+    public ResponseEntity<Void> receive(@RequestBody List<Map> mapList){
+        System.out.println(mapList);
+        return ResponseEntity.ok().build();
     }
 
 }

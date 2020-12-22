@@ -5,6 +5,10 @@
 
 <mapper namespace="com.jsy.simsserver.mapper.StudentMapper">
 
+    <select id="checkStudent" parameterType="Student" resultType="Student">
+        SELECT * FROM student WHERE sid = #{sid} AND pwd = #{pwd};
+    </select>
+
     <insert id="insertStudent" parameterType="Student">
         INSERT INTO student(sid,pwd,sname,gender,birth,profession,faculty,s_class,grade,phone,politics_status,address,head_url)
         VALUES (#{sid},#{pwd},#{sname},#{gender},#{birth},#{profession},#{faculty},#{s_class},#{grade},#{phone},#{politics_status},#{address},#{head_url});

@@ -40,6 +40,8 @@
     </resultMap>
 
     <resultMap id="scoreResultBySID" type="Score">
+<!--        如果没有 id  会自动去重 -->
+        <id column="cid"/>
         <result property="score" column="score"/>
         <association property="course" column="cid" javaType="Course" resultMap="courseResult"/>
     </resultMap>
@@ -93,5 +95,11 @@
         DELETE FROM score
         WHERE sid = #{sid} AND cid = #{cid} ;
     </delete>
+
+    <insert id="insertStudentScoreOfCourse" parameterType="Score">
+        INSERT INTO score(sid,cid,score)
+        VALUES (#{student.sid},#{course.cid},#{score});
+    </insert>
+
 
 </mapper>

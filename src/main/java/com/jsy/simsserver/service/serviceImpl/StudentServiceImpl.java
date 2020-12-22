@@ -86,5 +86,11 @@ public class StudentServiceImpl implements StudentService {
     }
 
 
-
+    @Override
+    public boolean studentLogin(Student student) {
+        if(studentMapper.checkStudent(student)==null){
+            return false;
+        }
+        return true;
+    }
 }

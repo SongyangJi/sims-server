@@ -17,4 +17,9 @@ public interface CourseService {
 
     Course queryCourseByID(Long cid);
 
+    void studentsSelectCourse(Long sid,Long cid);
+
+    List<Course> querySelectedCourses(Long sid);
+
+
 }

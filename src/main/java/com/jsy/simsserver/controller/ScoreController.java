@@ -1,5 +1,8 @@
 package com.jsy.simsserver.controller;
 
+import com.jsy.simsserver.pojo.Course;
+import com.jsy.simsserver.pojo.Score;
+import com.jsy.simsserver.pojo.Student;
 import com.jsy.simsserver.service.CourseService;
 import com.jsy.simsserver.service.ScoreService;
 import com.jsy.simsserver.service.StudentService;
@@ -8,6 +11,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -69,6 +74,24 @@ public class ScoreController {
         map.put("cid",cid);
         scoreService.removeStudentScoreOfCourse(map);
         return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
+    }
+
+    @PostMapping("/scores")
+    public ResponseEntity<Void> addStudentsScoresOfCourse(@RequestBody List<Map> mapList){
+        List<Score> scoreList = new ArrayList<>();
+        for(Map map:mapList){
+            Score score = new Score();
+            Student student = new Student();
+            Course course = new Course();
+            student.setSid(Long.valueOf((String) map.get("sid")));
+            course.setCid(Long.valueOf((String) map.get("cid")));
+            score.setStudent(student);
+            score.setCourse(course);
+            score.setScore(Double.valueOf((String) map.get("score")));
+            scoreList.add(score);
+        }
+        scoreService.addStudentsScores(scoreList);
+        return ResponseEntity.status(HttpStatus.CREATED).build();
     }
 
 }

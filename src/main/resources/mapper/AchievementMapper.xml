@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.jsy.simsserver.mapper.AchievementMapper">
+
+    <insert id="insertAchievement" parameterType="Achievement" useGeneratedKeys="true" keyProperty="a.achievement_id">
+
+        INSERT INTO achievement(name,description,level,kind,time,sid)
+        VALUES (#{a.name},#{a.description},#{a.level},#{a.kind},#{a.time},#{sid});
+
+    </insert>
+
+
+    <insert id="insertAchievementURL">
+        INSERT INTO achievement_url(achievement_id,url)
+        VALUES (#{achievement_id},#{url});
+    </insert>
+
+    <select id="selectAchievementByStudentId" resultType="Achievement">
+        SELECT * FROM achievement WHERE sid = #{sid};
+    </select>
+
+    <select id="selectUrlsByAchievementID" resultType="java.lang.String">
+        SELECT url FROM achievement_url WHERE achievement_id = #{achievement_id};
+    </select>
+
+</mapper>

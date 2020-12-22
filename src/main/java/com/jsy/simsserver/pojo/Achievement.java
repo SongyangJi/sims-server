@@ -1,11 +1,14 @@
 package com.jsy.simsserver.pojo;
 
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.springframework.format.annotation.DateTimeFormat;
 
+import java.util.Date;
 import java.util.List;
 
 @Getter
@@ -13,6 +16,8 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Achievement {
+    private Long achievement_id;
+    private Long sid;
     private String name;            // 成就名称
     private String description;      // 描述
     private String level;            // 获奖级别

@@ -1,0 +1,40 @@
+09:57:37.379 [main] INFO  com.jsy.simsserver.SimsServerApplication - Starting SimsServerApplication using Java 1.8.0_271 on MACdeMacBook-Air-2.local with PID 24050 (/Users/mac/IdeaProjects/sims-server/target/classes started by mac in /Users/mac/IdeaProjects/sims-server)
+09:57:47.411 [main] INFO  com.jsy.simsserver.SimsServerApplication - No active profile set, falling back to default profiles: default
+09:57:49.133 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8088"]
+09:57:49.134 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+09:57:49.135 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.39]
+09:57:49.287 [main] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+09:57:50.245 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8088"]
+09:57:50.300 [main] INFO  com.jsy.simsserver.SimsServerApplication - Started SimsServerApplication in 28.749 seconds (JVM running for 41.101)
+09:58:18.694 [http-nio-8088-exec-2] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+09:58:19.026 [http-nio-8088-exec-2] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-1} inited
+09:59:13.718 [SpringContextShutdownHook] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-1} closed
+09:59:56.122 [main] INFO  com.jsy.simsserver.SimsServerApplication - Starting SimsServerApplication using Java 1.8.0_271 on MACdeMacBook-Air-2.local with PID 24094 (/Users/mac/IdeaProjects/sims-server/target/classes started by mac in /Users/mac/IdeaProjects/sims-server)
+10:00:06.178 [main] INFO  com.jsy.simsserver.SimsServerApplication - No active profile set, falling back to default profiles: default
+10:00:07.864 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8088"]
+10:00:07.864 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+10:00:07.865 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.39]
+10:00:08.009 [main] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+10:00:09.121 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8088"]
+10:00:09.189 [main] INFO  com.jsy.simsserver.SimsServerApplication - Started SimsServerApplication in 29.067 seconds (JVM running for 41.619)
+10:02:00.509 [http-nio-8088-exec-1] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+10:07:35.230 [http-nio-8088-exec-4] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-1} inited
+10:13:58.336 [SpringContextShutdownHook] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-1} closed
+10:14:32.412 [main] INFO  com.jsy.simsserver.SimsServerApplication - Starting SimsServerApplication using Java 1.8.0_271 on MACdeMacBook-Air-2.local with PID 24306 (/Users/mac/IdeaProjects/sims-server/target/classes started by mac in /Users/mac/IdeaProjects/sims-server)
+10:14:42.437 [main] INFO  com.jsy.simsserver.SimsServerApplication - The following profiles are active: dev
+10:14:43.851 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8088"]
+10:14:43.860 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+10:14:43.862 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.39]
+10:14:44.095 [main] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+10:14:44.280 [main] INFO  org.apache.catalina.core.StandardService - Stopping service [Tomcat]
+10:15:20.390 [main] INFO  com.jsy.simsserver.SimsServerApplication - Starting SimsServerApplication using Java 1.8.0_271 on MACdeMacBook-Air-2.local with PID 24324 (/Users/mac/IdeaProjects/sims-server/target/classes started by mac in /Users/mac/IdeaProjects/sims-server)
+10:15:30.417 [main] INFO  com.jsy.simsserver.SimsServerApplication - The following profiles are active: dev
+10:15:32.221 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8088"]
+10:15:32.222 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+10:15:32.223 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.39]
+10:15:32.450 [main] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+10:15:33.626 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8088"]
+10:15:33.693 [main] INFO  com.jsy.simsserver.SimsServerApplication - Started SimsServerApplication in 29.095 seconds (JVM running for 41.175)
+10:15:55.454 [http-nio-8088-exec-1] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+10:15:57.427 [http-nio-8088-exec-2] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-1} inited
+10:18:01.528 [SpringContextShutdownHook] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-1} closed

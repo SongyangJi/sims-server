@@ -19,11 +19,10 @@ public interface StudentService {
 
     List<Student> queryStudentByName(String name);
 
-
     void removeStudent(Long sid);
 
     void updateStudent(Student student);
 
-
+    boolean studentLogin(Student student);
 
 }

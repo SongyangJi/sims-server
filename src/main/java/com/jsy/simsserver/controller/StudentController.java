@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 import java.util.List;
+import java.util.Map;
 
 
 @RestController
@@ -18,6 +19,22 @@ public class StudentController {
 
     @Resource(name = "studentService")
     StudentService studentService;
+
+
+    @PostMapping("student-login")
+    public ResponseEntity<Void> studentLogin(@RequestBody Map map){
+        Long sid = Long.valueOf((String)map.get("sid"));
+        String pwd = (String)map.get("pwd");
+        Student student = new Student();
+        student.setSid(sid);
+        student.setPwd(pwd);
+        if(studentService.studentLogin(student)==false){
+//            202
+            return ResponseEntity.accepted().build();
+        }
+//        200
+        return ResponseEntity.ok().build();
+    }
 
 
     /**
